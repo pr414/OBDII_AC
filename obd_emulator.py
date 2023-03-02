@@ -1,3 +1,12 @@
+import sys
+import os
+
+libdir = "serial"
+lib_path = r"C:\Users\paolo\AppData\Roaming\Python\Python310\site-packages"
+#os.path.join(os.path.dirname(__file__), libdir)
+# c:\blalballbal\vlsdlvaldvl\parent_serial\
+sys.path.insert(0, lib_path)
+
 import serial
 import serial.tools.list_ports
 import struct
