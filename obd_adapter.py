@@ -4,6 +4,7 @@ import platform
 import math
 import time
 import multiprocessing
+import asyncio
 
 if platform.architecture()[0] == "64bit":
     dllfolder = "stdlib64"
@@ -157,29 +158,29 @@ def acUpdate(deltaT):
             ac.setText(obd_emulator_status_label, "OBD Emulator: OK")
 
     #OBD-II Emulator Protocol Setup
-    if not is_procol_set:
-        if (obd_emu.set_protocol("ISO9141_2") == "OK"):
-            is_procol_set=True
+    #if not is_procol_set:
+    #    if (obd_emu.set_protocol("ISO9141_2") == "OK"):
+    #        is_procol_set=True
     
     #OBD-II PID Values Update
-    link_error=False
+    #link_error=False
     #runtime_chrono_live=time.time()*1000
-    if (is_OBD_emu_connected and is_procol_set):
+    #if (is_OBD_emu_connected and is_procol_set):
     #if (is_OBD_emu_connected):
         #if (runtime_chrono_live - runtime_chrono) > 250:
         #runtime_chrono=runtime_chrono_live    
-        if obd_emu.set_pid(PID_RPM, rpm) == "ERROR":
-            link_error=True
-        if obd_emu.set_pid(PID_SPEED, speed) == "ERROR":
-            link_error=True
-        if obd_emu.set_pid(PID_THROTTLE, throttle) == "ERROR":
-            link_error=True
-        if obd_emu.set_pid(PID_TORQUE, torque) == "ERROR":
-            link_error=True
+    #    if obd_emu.set_pid(PID_RPM, rpm) == "ERROR":
+    #        link_error=True
+    #    if obd_emu.set_pid(PID_SPEED, speed) == "ERROR":
+     #       link_error=True
+     #   if obd_emu.set_pid(PID_THROTTLE, throttle) == "ERROR":
+     #       link_error=True
+     #   if obd_emu.set_pid(PID_TORQUE, torque) == "ERROR":
+     #       link_error=True
 
-    if link_error:
-        ac.setText(obd_emulator_status_label, "OBD Emulator: RESTARTING")
-        obd_emu.reinitialize()
+    #if link_error:
+    #    ac.setText(obd_emulator_status_label, "OBD Emulator: RESTARTING")
+    #    obd_emu.reinitialize()
         
 
 def acShutdown():
