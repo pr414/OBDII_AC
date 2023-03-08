@@ -34,7 +34,7 @@ class FreematicsEmulator:
     def connect(self):
         n, path = self.scan()
         if n == 1:
-            self.ser = serial.Serial(path, baudrate=38400, timeout=1)
+            self.ser = serial.Serial(path, baudrate=38400, timeout=0.2)
             self.character_echo(0)
             self.sendCMD("ATINF0")
             self.ignition_on()
@@ -50,7 +50,7 @@ class FreematicsEmulator:
     def sendCMD(self, cmd):
         if self.verbose:
             print("S>", cmd)
-        self.ser.write((cmd + "\r").encode('ascii'))
+        self.ser.write(str(cmd + "\r").encode('ascii')) #HO AGGIUNTO IO STR
         out = self.ser.readline().decode('ascii').replace('\r', '').strip()
         if self.verbose:
             print("R>", out)
