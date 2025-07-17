@@ -45,9 +45,9 @@ The threading approach was necessary as serial command transmission proved more 
 ## Installation & Usage
 
 ### Setup
-1. Place the `obd_adapter` folder in the `...\apps\python` directory of your Assetto Corsa installation
+1. Place the `obd_adapter` python mod in the `...\apps\python\obd_adapter` directory of your Assetto Corsa installation
 2. Enable the application in the simulator's configuration menu by checking it as active in the available mods list
-3. Ensure the OBD emulator is connected to the PC before starting the driving session
+3. Ensure the OBD emulator is connected to the PC **before** starting the driving session
 
 ### Operation
 1. Start Assetto Corsa and enter a driving session
